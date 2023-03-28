@@ -1,10 +1,10 @@
 #Probabilidad curso 12, TP 1. Ejercicio 13, inciso a.
 
 #Una urna contiene 10 bolas numeradas del 0 al 9.
-#Se extraen al azar con reposici髇 cinco bolas. Calcular la probabilidad de que
+#Se extraen al azar con reposici贸n cinco bolas. Calcular la probabilidad de que
 #1. las cinco sean iguales.
-#2. seg鷑 el orden de extracci髇 se observen los n鷐eros 1,3,5,7,9.
-#3. se observen los cinco n鷐eros impares.
+#2. seg煤n el orden de extracci贸n se observen los n煤meros 1,3,5,7,9.
+#3. se observen los cinco n煤meros impares.
 #4. las cinco sean distintas.
 
 #Integrantes: Alejandro Saragossi y Ramiro Barreto
@@ -13,11 +13,11 @@
 
 urna <- c("b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9")
 
-#Fijemos adem醩 una semilla para que cada vez que comience el experimento el R haga lo mismo.
+#Fijemos adem谩s una semilla para que cada vez que comience el experimento el R haga lo mismo.
 
 set.seed(27)
 
-#Simulemos ahora nuestro experimento mediante la funci髇 "simulation" 
+#Simulemos ahora nuestro experimento mediante la funci贸n "simulation" 
 
 simulation <- function(n)
 {
@@ -28,10 +28,10 @@ simulation <- function(n)
   sacada <- c()
   for(i in 1:n)
   {
-    sacada <- sample(urna, 5, TRUE) #Del vector "urna" saco 5 elementos con reposici髇
-    A[i,] <- sacada #En cada fila de la matriz colocamos los resultados del i 閟imo experimento aleatorio
+    sacada <- sample(urna, 5, TRUE) #Del vector "urna" saco 5 elementos con reposici贸n
+    A[i,] <- sacada #En cada fila de la matriz colocamos los resultados del i 茅simo experimento aleatorio
   }
-  return(A) #La funci髇 devuelve la matriz A con la que trabajaremos a continuaci髇
+  return(A) #La funci贸n devuelve la matriz A con la que trabajaremos a continuaci贸n
 }
 
 #Para resolver cada punto, buscaremos funciones que devuelvan, para una dada cantidad de simulaciones (n), 
@@ -40,7 +40,7 @@ simulation <- function(n)
  
 #Punto 1.
 
-#Para hacerlo, compara si el primer elemento de la j 閟ima fila es igual a los dem醩
+#Para hacerlo, compara si el primer elemento de la j 茅sima fila es igual a los dem谩s
 
 prob_pto1 <- function(v)
 {  
@@ -60,7 +60,7 @@ prob_pto1 <- function(v)
 
 #Punto 2. 
 
-#En este caso, la funci髇 eval鷄, para cada vector fila, si coincide con el pedido (1,3,5,7,9) 
+#En este caso, la funci贸n eval煤a, para cada vector fila, si coincide con el pedido (1,3,5,7,9) 
 
 prob_pto2 <- function(a)
 {
@@ -73,14 +73,14 @@ prob_pto2 <- function(a)
       cont <- cont + 1
     }
   }
-  #Nuevamente, para la aproximaci髇 de la probabilidad usamos la frecuencia relativa 
+  #Nuevamente, para la aproximaci贸n de la probabilidad usamos la frecuencia relativa 
   rta <- cont/a
   return(rta)
 }
 
 #Punto 3
 
-#Habiendo definido el vector "impar", prob_pto3 eval鷄 si las componentes de cada vector fila pertenecen al mismo
+#Habiendo definido el vector "impar", prob_pto3 eval煤a si las componentes de cada vector fila pertenecen al mismo
 
 prob_pto3 <- function(b)
 {
@@ -94,7 +94,7 @@ prob_pto3 <- function(b)
       cont <- cont + 1
     }
   }
-  #An醠ogamente a lo ya hecho, calculamos la frecuencia relativa
+  #An谩logamente a lo ya hecho, calculamos la frecuencia relativa
   rta <- cont/b
   return(rta)
 }
@@ -102,7 +102,7 @@ prob_pto3 <- function(b)
 #Punto 4
 
 #Usando "unique(w)", que devuelve una copia del vector w sin los elementos repetidos, analizamos si la 
-#dimensi髇 de dicho vector es igual a 5; esto implicar韆 que se han extra韉o bolas distintas  
+#dimensi贸n de dicho vector es igual a 5; esto implicar铆a que se han extra铆do bolas distintas  
 
 prob_pto4 <- function(t)
 {
